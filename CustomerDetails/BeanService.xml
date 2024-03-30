@@ -1,0 +1,1232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+    <!--User-->
+    <bean id="userActivityLogService1" class="com.bul.zydex.service.UserActivityLogServiceImpl">
+        <property name="userActivityLogDAO" ref="userActivityLogDAO1"/>
+    </bean>
+    <bean id="userLoginLogService1" class="com.bul.zydex.service.UserLoginLogServiceImpl">
+        <property name="userLoginLogDAO" ref="userLoginLogDAO1"/>
+    </bean>
+    <bean id="userMasterService1" class="com.bul.zydex.service.UserMasterServiceImpl">
+        <property name="userMasterDAO" ref="userMasterDAO1"/>
+    </bean>
+    <bean id="mailMasterService1" class="com.bul.zydex.service.MailMasterServiceImpl">
+        <property name="mailMasterDAO" ref="mailMasterDAO1"/>
+    </bean>
+    <bean id="smsMasterService1" class="com.bul.zydex.service.SmsMasterServiceImpl">
+        <property name="smsMasterDAO" ref="smsMasterDAO1"/>
+    </bean>
+    <bean id="deviceMasterService1" class="com.bul.zydex.service.DeviceMasterServiceImpl">
+        <property name="deviceMasterDAO" ref="deviceMasterDAO1"/>
+        <property name="employeeShiftDataDAO" ref="employeeShiftDataDAO1"/>
+        <property name="shiftMasterDAO" ref="shiftMasterDAO1"/>
+        <property name="holidayMasterDAO" ref="holidayMasterDAO1"/>
+        <property name="shiftGenerateMonthlyScheduleDAO" ref="shiftGenerateMonthlyScheduleDAO1"/>
+        <property name="sendMail" ref="sendMail1"/>
+    </bean>
+    <bean id="deviceMasterNotificationService1" class="com.bul.zydex.service.DeviceMasterNotificationServiceImpl">
+        <property name="deviceMasterNotificationDAO" ref="deviceMasterNotificationDAO1"/>
+    </bean>
+
+    <!--Employee-->
+    <bean id="employeeMasterService1" class="com.bul.zydex.service.emp.EmployeeMasterServiceImpl">
+        <property name="employeeMasterDAO" ref="employeeMasterDAO1"/>
+    </bean>
+    <!--Department Master-->
+    <bean id="departmentMasterService1" class="com.bul.zydex.service.emp.DepartmentMasterServiceImpl">
+        <property name="departmentMasterDAO" ref="departmentMasterDAO1"/>
+    </bean>
+    
+    <bean id="companyWiseEmailService1" class="com.bul.zydex.service.CompanyWiseEmail.CompanyWiseEmailServiceImpl">
+        <property name="companyWiseEmailDAO" ref="companyWiseEmailDAO1"/>
+    </bean>
+    <!--Designation Master-->
+    <bean id="designationMasterService1" class="com.bul.zydex.service.emp.DesignationMasterServiceImpl">
+        <property name="designationMasterDAO" ref="designationMasterDAO1"/>
+    </bean>
+    <!--Holiday Management-->
+    <bean id="holidayMasterService1" class="com.bul.zydex.service.holiday.HolidayMasterServiceImpl">
+        <property name="holidayMasterDAO" ref="holidayMasterDAO1"/>
+    </bean>
+    <!--Employee Referral-->
+    <bean id="employeeReferralService1" class="com.bul.zydex.service.empreferral.EmployeeReferralServiceImpl">
+        <property name="employeeReferralDAO" ref="employeeReferralDAO1"/>
+    </bean>
+    <!--Zydex Locatin Master-->
+    <bean id="zydexLocationMasterService1" class="com.bul.zydex.service.zydexLocation.ZydexLocationMasterServiceImpl">
+        <property name="zydexLocationMasterDAO" ref="zydexLocationMasterDAO1"/>
+    </bean>
+    <!--Position Refer Master-->
+    <bean id="positionReferMasterService1" class="com.bul.zydex.service.Position.PositionReferMasterServiceImpl">
+        <property name="positionReferMasterDAO" ref="positionReferMasterDAO1"/>
+    </bean>
+
+    <!--Shift Management-->
+    <bean id="shiftMasterService1" class="com.bul.zydex.service.shift.ShiftMasterServiceImpl">
+        <property name="shiftMasterDAO" ref="shiftMasterDAO1"/>
+    </bean>
+    <bean id="hoursBasisService1" class="com.bul.zydex.service.shift.HoursBasisServiceImpl">
+        <property name="hoursBasisDAO" ref="hoursBasisDAO1"/>
+    </bean>
+    <bean id="maxDayLateAllowedService1" class="com.bul.zydex.service.shift.MaxDayLateAllowedServiceImpl">
+        <property name="maxDayLateAllowedDAO" ref="maxDayLateAllowedDAO1"/>
+    </bean>
+    <bean id="punchService1" class="com.bul.zydex.service.shift.PunchServiceImpl">
+        <property name="punchDAO" ref="punchDAO1"/>
+    </bean>
+    <bean id="timeAttendanceMasterService1" class="com.bul.zydex.service.shift.TimeAttendanceMasterServiceImpl">
+        <property name="timeAttendanceMasterDAO" ref="timeAttendanceMasterDAO1"/>
+    </bean>
+    <bean id="shiftRotationMasterService1" class="com.bul.zydex.service.shift.ShiftRotationMasterServiceImpl">
+        <property name="shiftRotationMasterDAO" ref="shiftRotationMasterDAO1"/>
+    </bean>
+    <bean id="rotationMasterService1" class="com.bul.zydex.service.shift.RotationMasterServiceImpl">
+        <property name="rotationMasterDAO" ref="rotationMasterDAO1"/>
+    </bean>
+    <bean id="shiftRotationInfoService1" class="com.bul.zydex.service.shift.ShiftRotationInfoServiceImpl">
+        <property name="shiftRotationInfoDAO" ref="shiftRotationInfoDAO1"/>
+    </bean>
+    <bean id="shiftGenerateMonthlyScheduleService1" class="com.bul.zydex.service.shift.ShiftGenerateMonthlyScheduleServiceImpl">
+        <property name="shiftGenerateMonthlyScheduleDAO" ref="shiftGenerateMonthlyScheduleDAO1"/>
+    </bean>
+    <bean id="temporaryShiftAssignService1" class="com.bul.zydex.service.shift.TemporaryShiftAssignServiceImpl">
+        <property name="temporaryShiftAssignDAO" ref="temporaryShiftAssignDAO1"/>
+    </bean>
+    <bean id="employeeDatetimeDataService1" class="com.bul.zydex.service.shift.EmployeeDatetimeDataServiceImpl">
+        <property name="employeeDatetimeDataDAO" ref="employeeDatetimeDataDAO1"/>
+    </bean>
+    <bean id="employeeShiftDataService1" class="com.bul.zydex.service.shift.EmployeeShiftDataServiceImpl">
+        <property name="employeeShiftDataDAO" ref="employeeShiftDataDAO1"/>
+    </bean>
+
+    <bean id="monthlyPunchInOutReportService1" class="com.bul.zydex.service.shift.MonthlyPunchInOutReportServiceImpl">
+        <property name="monthlyPunchInOutReportDAO" ref="monthlyPunchInOutReportDAO1"/>
+    </bean>
+    <!--Leave Management-->
+    <bean id="leaveTypeMasterService1" class="com.bul.zydex.service.leave.LeaveTypeMasterServiceImpl">
+        <property name="leaveTypeMasterDAO" ref="leaveTypeMasterDAO1"/>
+    </bean>
+    <bean id="leaveEmployeeDetailService1" class="com.bul.zydex.service.leave.LeaveEmployeeDetailServiceImpl">
+        <property name="leaveEmployeeDetailDAO" ref="leaveEmployeeDetailDAO1"/>
+    </bean>
+    <bean id="employeeLeaveBalanceService1" class="com.bul.zydex.service.leave.EmployeeLeaveBalanceServiceImpl">
+        <property name="employeeLeaveBalanceDAO" ref="employeeLeaveBalanceDAO1"/>
+    </bean>
+    
+    <bean id="leaveCrDrReportService1" class="com.bul.zydex.service.leave.LeaveCrDrReportServiceImpl">
+        <property name="leaveCrDrReportDAO" ref="leaveCrDrReportDAO1"/>
+    </bean>
+    
+    <bean id="cOffLeaveRequestService1" class="com.bul.zydex.service.leave.COffLeaveRequestServiceImpl">
+        <property name="cOffLeaveRequestDAO" ref="cOffLeaveRequestDAO1"/>
+    </bean>
+    <bean id="shortLeaveService1" class="com.bul.zydex.service.leave.ShortLeaveServiceImpl">
+        <property name="shortLeaveDAO" ref="shortLeaveDAO1"/>
+    </bean>
+    <bean id="leaveEncashmentService1" class="com.bul.zydex.service.leave.LeaveEncashmentServiceImpl">
+        <property name="leaveEncashmentDAO" ref="leaveEncashmentDAO1"/>
+    </bean>
+    <bean id="cOffLeaveMasterService1" class="com.bul.zydex.service.leave.COffLeaveMasterServiceImpl">
+        <property name="cOffLeaveMasterDAO" ref="cOffLeaveMasterDAO1"/>
+    </bean>
+
+    <!--level Management-->
+    <bean id="levelMasterService1" class="com.bul.zydex.service.level.LevelMasterServiceImpl">
+        <property name="levelMasterDAO" ref="levelMasterDAO1"/>
+    </bean>
+
+    <!--location Management-->
+    <bean id="locationMasterService1" class="com.bul.zydex.service.location.LocationMasterServiceImpl">
+        <property name="locationMasterDAO" ref="locationMasterDAO1"/>
+    </bean>
+
+    <!--Visitor Visited List-->
+    <bean id="visitorVisitedLocationService1" class="com.bul.zydex.service.location.VisitorVisitedLocationServiceImpl">
+        <property name="visitorVisitedLocationDAO" ref="visitorVisitedLocationDAO1"/>
+    </bean>
+
+
+    <!--Probation To Confirmation-->
+    <bean id="probationToConfirmationService1" class="com.bul.zydex.service.probation.ProbationToConfirmationServiceImpl">
+        <property name="probationToConfirmationDAO" ref="probationToConfirmationDAO1"/>
+    </bean>
+
+    <!--Employee Request-->
+    <bean id="poolCarRequestService1" class="com.bul.zydex.service.emprequest.PoolCarRequestServiceImpl">
+        <property name="poolCarRequestDAO" ref="poolCarRequestDAO1"/>
+    </bean>
+    <bean id="cafeteriaRequestService1" class="com.bul.zydex.service.emprequest.CafeteriaRequestServiceImpl">
+        <property name="cafeteriaRequestDAO" ref="cafeteriaRequestDAO1"/>
+    </bean>
+    <bean id="visitorManagementService1" class="com.bul.zydex.service.emprequest.VisitorManagementServiceImpl">
+        <property name="visitorManagementDAO" ref="visitorManagementDAO1"/>
+    </bean>
+    <bean id="queryTypeService1" class="com.bul.zydex.service.emprequest.QueryTypeServiceImpl">
+        <property name="queryTypeDAO" ref="queryTypeDAO1"/>
+    </bean>
+    <bean id="hrServiceRequestService1" class="com.bul.zydex.service.emprequest.HrServiceRequestServiceImpl">
+        <property name="hrServiceRequestDAO" ref="hrServiceRequestDAO1"/>
+    </bean>
+    <bean id="gatePassService1" class="com.bul.zydex.service.emprequest.GatePassServiceImpl">
+        <property name="gatePassDAO" ref="gatePassDAO1"/>
+    </bean>
+    <bean id="itRequestTypeService1" class="com.bul.zydex.service.emprequest.ItRequestTypeServiceImpl">
+        <property name="itRequestTypeDAO" ref="itRequestTypeDAO1"/>
+    </bean>
+    <bean id="itServiceRequestService1" class="com.bul.zydex.service.emprequest.ItServiceRequestServiceImpl">
+        <property name="itServiceRequestDAO" ref="itServiceRequestDAO1"/>
+    </bean>
+
+    <!--User Management-->
+    <bean id="userRightMasterService1" class="com.bul.zydex.service.UserRight.UserRightMasterServiceImpl">
+        <property name="userRightMasterDAO" ref="userRightMasterDAO1"/>
+    </bean>
+
+
+    <!--Travel Management-->
+    <bean id="travelRequestMasterService1" class="com.bul.zydex.service.travel.TravelRequestMasterServiceImpl">
+        <property name="travelRequestMasterDAO" ref="travelRequestMasterDAO1"/>
+    </bean>
+    <bean id="travelDetailService1" class="com.bul.zydex.service.travel.TravelDetailServiceImpl">
+        <property name="travelDetailDAO" ref="travelDetailDAO1"/>
+    </bean>
+    
+    <bean id="travelDetailsAddService1" class="com.bul.zydex.service.travel.TravelDetailsAddServiceImpl">
+        <property name="travelDetailsAddDAO" ref="travelDetailsAddDAO1"/>
+    </bean>
+    
+     <bean id="travelRequestBookingMasterAddService1" class="com.bul.zydex.service.travel.TravelRequestBookingMasterAddServiceImpl">
+        <property name="travelRequestBookingMasterAddDAO" ref="travelRequestBookingMasterAddDAO1"/>
+    </bean>
+    
+    <bean id="policyDeviationForAirService1" class="com.bul.zydex.service.travel.PolicyDeviationForAirServiceImpl">
+        <property name="policyDeviationForAirDAO" ref="policyDeviationForAirDAO1"/>
+    </bean>
+    <bean id="travelRequestBookingMasterService1" class="com.bul.zydex.service.travel.TravelRequestBookingMasterServiceImpl">
+        <property name="travelRequestBookingMasterDAO" ref="travelRequestBookingMasterDAO1"/>
+    </bean>
+    <bean id="travelConsultantMasterService1" class="com.bul.zydex.service.travel.TravelConsultantMasterServiceImpl">
+        <property name="travelConsultantMasterDAO" ref="travelConsultantMasterDAO1"/>
+    </bean>
+    <bean id="travelApproverHistoryService1" class="com.bul.zydex.service.travel.TravelApproverHistoryServiceImpl">
+        <property name="travelApproverHistoryDAO" ref="travelApproverHistoryDAO1"/>
+    </bean>
+    <bean id="hotelAccommodationService1" class="com.bul.zydex.service.travel.HotelAccommodationServiceImpl">
+        <property name="hotelAccommodationDAO" ref="hotelAccommodationDAO1"/>
+    </bean>
+    <!--Appraisal-->
+    <bean id="appraisal360Service1" class="com.bul.zydex.service.appraisal.Appraisal360SeviceImpl">
+        <property name="appraisal360DAO" ref="appraisal360DAO1"/>
+    </bean>
+
+    <!--Resignation-->
+    <bean id="resignationMasterService1" class="com.bul.zydex.service.resignation.ResignationMasterServiceImpl">
+        <property name="resignationMasterDAO" ref="resignationMasterDAO1"/>
+        
+    </bean>
+    <!--ExitInterview-->
+    <bean id="exitInterviewMasterService1" class="com.bul.zydex.service.exitInterview.ExitInterviewMasterServiceImpl">
+        <property name="exitInterviewMasterDAO" ref="exitInterviewMasterDAO1"/>
+    </bean>
+    <!--Nodue-->
+    <bean id="noDueMasterService1" class="com.bul.zydex.service.nodue.NoDueMasterServiceImpl">
+        <property name="noDueMasterDAO" ref="noDueMasterDAO1"/>
+    </bean>
+    <!--Expense-->
+    <bean id="expenseMasterService1" class="com.bul.zydex.service.expense.ExpenseMasterServiceImpl">
+        <property name="expenseMasterDAO" ref="expenseMasterDAO1"/>
+    </bean>
+    <bean id="expenseRequestBookingMasterService1" class="com.bul.zydex.service.expense.ExpenseRequestBookingMasterServiceImpl">
+        <property name="expenseRequestBookingMasterDAO" ref="expenseRequestBookingMasterDAO1"/>
+    </bean>
+   
+    <!--KraGoalMaster-->
+    <bean id="kraGoalMasterService1" class="com.bul.zydex.service.appraisalPerformance.KraGoalMasterServiceImpl">
+        <property name="kraGoalMasterDAO" ref="kraGoalMasterDAO1" />
+    </bean>
+    
+    <bean id="kraWeightageService1" class="com.bul.zydex.service.appraisalPerformance.KraWeightageServiceImpl">
+        <property name="kraWeightageDAO" ref="kraWeightageDAO1" />
+    </bean>
+    <!--PolicyMaster-->
+    <bean id="policyMasterService1" class="com.bul.zydex.service.policy.PolicyMasterServiceImpl">
+        <property name="policyMasterDAO" ref="policyMasterDAO1"/>
+    </bean>
+    <!--Currency Master-->
+    <bean id="currencyMasterService1" class="com.bul.zydex.service.CurrencyMasterServiceImpl">
+        <property name="currencyMasterDAO" ref="currencyMasterDAO1"/>
+    </bean>
+    <!--ExpenseTravelType-->
+    <bean id="expenseTravelTypeService1" class="com.bul.zydex.service.expenseTravelType.ExpenseTravelTypeServiceImpl">
+        <property name="expenseTravelTypeDAO" ref="expenseTravelTypeDAO1"/>
+    </bean>
+    <!--ExpenseOtherType-->
+    <bean id="expenseOtherTypeService1" class="com.bul.zydex.service.expenseOtherType.ExpenseOtherTypeServiceImpl">
+        <property name="expenseOtherTypeDAO" ref="expenseOtherTypeDAO1"/>
+    </bean>
+
+    <bean id="relocationOrOtherExpenseService1" class="com.bul.zydex.service.otherExpense.RelocationOrOtherExpenseServiceImpl">
+        <property name="relocationOrOtherExpenseDAO" ref="relocationOrOtherExpenseDAO1"/>
+    </bean>
+    <!--Appraisal Performance>-->
+    <bean id="appraisalPerformanceService1" class="com.bul.zydex.service.appraisalPerformance.AppraisalPerformanceServiceImpl">
+        <property name="appraisalPerformanceDAO" ref="appraisalPerformanceDAO1"/>
+    </bean>
+    <!--Appraisal Filing Data>-->
+    <bean id="appraisalFillingDataService1" class="com.bul.zydex.service.appraisalPerformance.AppraisalFillingDataServiceImpl">
+        <property name="appraisalFillingDataDAO" ref="appraisalFillingDataDAO1"/>
+    </bean>
+    <!--Appraisal Performance Kra-->
+    <bean id="appraisalPerformanceKraService1" class="com.bul.zydex.service.appraisalPerformance.AppraisalPerformanceKraServiceImpl">
+        <property name="appraisalPerformanceKraDAO" ref="appraisalPerformanceKraDAO1"/>
+    </bean>
+    <!--UpdateAppraisalPerformanceKra-->
+    <bean id="updateAppraisalPerformanceKraService1" class="com.bul.zydex.service.appraisalPerformance.UpdateAppraisalPerformanceKraServiceImpl">
+        <property name="updateAppraisalPerformanceKraDAO" ref="updateAppraisalPerformanceKraDAO1"/>
+    </bean>
+    <!--UpdateAppraisalPerformanceKraActivity-->
+    <bean id="updateAppraisalPerformanceActivitiesService1" class="com.bul.zydex.service.appraisalPerformance.UpdateAppraisalPerformanceActivitiesServiceImpl">
+        <property name="updateAppraisalPerformanceActivitiesDAO" ref="updateAppraisalPerformanceActivitiesDAO1"/>
+    </bean>
+
+    <!--KraCategory-->
+    <bean id="kraCategoryService1" class="com.bul.zydex.service.appraisalPerformance.KraCategoryServiceImpl">
+        <property name="kraCategoryDAO" ref="kraCategoryDAO1" />
+    </bean>
+
+    <!--Attendance Management-->
+    <bean id="attendanceRegularizationMasterService1" class="com.bul.zydex.service.attendanceRegularization.AttendanceRegularizationMasterServiceImpl">
+        <property name="attendanceRegularizationMasterDAO" ref="attendanceRegularizationMasterDAO1"/>
+        <property name="employeeShiftDataDAO" ref="employeeShiftDataDAO1"/>
+        <property name="shiftMasterDAO" ref="shiftMasterDAO1"/>
+        <property name="leaveEmployeeDetailDAO" ref="leaveEmployeeDetailDAO1"/>
+        <property name="shiftGenerateMonthlyScheduleDAO" ref="shiftGenerateMonthlyScheduleDAO1"/>
+        <property name="employeeMasterDAO" ref="employeeMasterDAO1"/>
+        <property name="companyMasterDAO" ref="companyMasterDAO1"/>
+        <property name="leaveApplyByHrDAO" ref="leaveApplyByHrDAO1"/>
+        <property name="leaveCompensationDAO" ref="leaveCompensationDAO1"/>
+        <property name="holidayMasterDAO"   ref="holidayMasterDAO1"/>
+        <property name="monthlyPunchInOutReportDAO"  ref="monthlyPunchInOutReportDAO1"/>
+        
+    </bean>
+    <bean id="timeAttandanceFlaxibleMasterService1" class="com.bul.zydex.service.attendanceRegularization.TimeAttandanceFlaxibleMasterServiceImpl">
+        <property name="timeAttandanceFlaxibleMasterDAO" ref="timeAttandanceFlaxibleMasterDAO1"/>
+    </bean>
+    <!--Over Time-->
+    <bean id="overTimeMasterService1" class="com.bul.zydex.service.overTime.OverTimeMasterServiceImpl">
+        <property name="overTimeMasterDAO" ref="overTimeMasterDAO1"/>
+    </bean>
+
+    <!--competencyEvaluationMaster-->
+    <bean id="competencyEvaluationMasterService1" class="com.bul.zydex.service.appraisalPerformance.CompetencyEvaluationMasterServiceImpl">
+        <property name="competencyEvaluationMasterDAO" ref="competencyEvaluationMasterDAO1"/>
+    </bean>
+    <!--CompetencyEvaluationTextmaster-->
+    <bean id="competencyEvaluationTextmasterService1" class="com.bul.zydex.service.appraisalPerformance.CompetencyEvaluationTextmasterServiceImpl">
+        <property name="competencyEvaluationTextmasterDAO" ref="competencyEvaluationTextmasterDAO1"/>
+    </bean>
+    <!--AppraisalPerformanceCompetencyEvaluation-->
+    <bean id="appraisalPerformanceCompetencyEvaluationService1" class="com.bul.zydex.service.appraisalPerformance.AppraisalPerformanceCompetencyEvaluationServiceImpl">
+        <property name="appraisalPerformanceCompetencyEvaluationDAO" ref="appraisalPerformanceCompetencyEvaluationDAO1"/>
+    </bean>
+    <!--AppraisalPerformanceIndividualDevelopmentPlan-->
+    <bean id="appraisalPerformanceIndividualDevelopmentPlanService1" class="com.bul.zydex.service.appraisalPerformance.AppraisalPerformanceIndividualDevelopmentPlanServiceImpl">
+        <property name="appraisalPerformanceIndividualDevelopmentPlanDAO" ref="appraisalPerformanceIndividualDevelopmentPlanDAO1"/>
+    </bean>
+    <!--AppraisalPerformanceBehaviors-->
+    <bean id="appraisalPerformanceBehaviorsService1" class="com.bul.zydex.service.appraisalPerformance.AppraisalPerformanceBehaviorsServiceImpl">
+        <property name="appraisalPerformanceBehaviorsDAO" ref="appraisalPerformanceBehaviorsDAO1"/>
+    </bean>
+    <!--AppraisalPerformanceOtherActivity-->
+    <bean id="appraisalPerformanceActivitiesService1" class="com.bul.zydex.service.appraisalPerformance.AppraisalPerformanceActivitiesServiceImpl">
+        <property name="appraisalPerformanceActivitiesDAO" ref="appraisalPerformanceActivitiesDAO1"/>
+    </bean>
+  
+    <!--ExpenseReconsilation-->
+    <bean id="expenseReconsilationService1" class="com.bul.zydex.service.expense.ExpenseReconsilationServiceImpl">
+        <property name="expenseReconsilationDAO" ref="expenseReconsilationDAO1"/>
+    </bean>
+    <!--IntervalMaster-->
+    <bean id="intervalMasterService1" class="com.bul.zydex.service.IntervalMasterServiceImpl">
+        <property name="intervalMasterDAO" ref="intervalMasterDAO1"/>
+    </bean>
+    <!--EmailTemplate-->
+    <bean id="emailTemplateService1" class="com.bul.zydex.service.EmailTemplateServiceImpl">
+        <property name="emailTemplateDAO" ref="emailTemplateDAO1"/>
+    </bean>
+    <!--EmailLog-->
+    <bean id="emailLogService1" class="com.bul.zydex.service.EmailLogServiceImpl">
+        <property name="emailLogDAO" ref="emailLogDAO1"/>
+    </bean>
+    <!--PIP-->
+    <bean id="performanceImprovementPlanMasterService1" class="com.bul.zydex.service.pip.PerformanceImprovementPlanMasterServiceImpl">
+        <property name="performanceImprovementPlanMasterDAO" ref="performanceImprovementPlanMasterDAO1"/>
+    </bean>
+
+    <bean id="improvementGoalService1" class="com.bul.zydex.service.pip.ImprovementGoalServiceImpl">
+        <property name="improvementGoalDAO" ref="improvementGoalDAO1"/>
+    </bean>
+    <bean id="activityGoalsService1" class="com.bul.zydex.service.pip.ActivityGoalsServiceImpl">
+        <property name="activityGoalsDAO" ref="activityGoalsDAO1"/>
+    </bean>
+    <bean id="goalResourceManagementService1" class="com.bul.zydex.service.pip.GoalResourceManagementServiceImpl">
+        <property name="goalResourceManagementDAO" ref="goalResourceManagementDAO1"/>
+    </bean>
+    <bean id="pipMeetingService1" class="com.bul.zydex.service.pip.PipMeetingServiceImpl">
+        <property name="pipMeetingDAO" ref="pipMeetingDAO1"/>
+    </bean>
+    <bean id="pipNextScheduledDateService1" class="com.bul.zydex.service.pip.PipNextScheduledDateServiceImpl">
+        <property name="pipNextScheduledDateDAO" ref="pipNextScheduledDateDAO1"/>
+    </bean>
+    <bean id="improvementGoalsHistoryService1" class="com.bul.zydex.service.pip.ImprovementGoalsHistoryServiceImpl">
+        <property name="improvementGoalsHistoryDAO" ref="improvementGoalsHistoryDAO1"/>
+    </bean>
+    <bean id="probationPeriodService1" class="com.bul.zydex.service.probation.ProbationPeriodServiceImpl">
+        <property name="probationPeriodDAO" ref="probationPeriodDAO1"/>
+    </bean>
+    <bean id="appraisalkraActivityService1" class="com.bul.zydex.service.appraisalPerformance.AppraisalkraActivityServiceImpl">
+        <property name="appraisalkraActivityDAO" ref="appraisalkraActivityDAO1"/>
+    </bean>
+    <bean id="employeePunchForMobileAppService1" class="com.bul.zydex.service.mobileapp.EmployeePunchForMobileAppServiceImpl">
+        <property name="employeePunchForMobileAppDAO" ref="employeePunchForMobileAppDAO1"/>
+    </bean>  
+    <bean id="emailAddMasterService1" class="com.bul.zydex.service.EmailAddMasterServiceImpl">
+        <property name="emailAddMasterDAO" ref="emailAddMasterDAO1"/>
+    </bean>
+    
+    <bean id="urlMasterService1" class="com.bul.zydex.service.url.UrlMasterServiceImpl">
+        <property name="urlMasterDAO" ref="urlMasterDAO1"/>
+    </bean>  
+   
+    <bean id="pmpFormStatusMasterService1" class="com.bul.zydex.service.PmpFormStatusMaster.PmpFormStatusMasterServiceImpl">
+        <property name="pmpFormStatusMasterDAO" ref="pmpFormStatusMasterDAO1"/>
+    </bean>  
+    <bean id="registerMobForPunchService1" class="com.bul.zydex.service.RegisterMobForPunch.RegisterMobForPunchServiceImpl">
+        <property name="registerMobForPunchDAO" ref="registerMobForPunchDAO1"/>
+    </bean>
+    <!--PayRoll-->
+    <bean id="payrollSavingTypeService1" class="com.bul.zydex.service.Payroll.PayrollSavingTypeServiceImpl">
+        <property name="payrollSavingTypeDAO" ref="payrollSavingTypeDAO1" />
+    </bean>
+    <bean id="payrollSalaryTypeService1" class="com.bul.zydex.service.Payroll.PayrollSalaryTypeServiceImpl">
+        <property name="payrollSalaryTypeDAO" ref="payrollSalaryTypeDAO1" />
+    </bean>
+
+    <bean id="payrollLoanTypeService1" class="com.bul.zydex.service.Payroll.PayrollLoanTypeServiceImpl">
+        <property name="payrollLoanTypeDAO" ref="payrollLoanTypeDAO1" />
+    </bean>
+    <bean id="payrollProfessionalTaxService1" class="com.bul.zydex.service.Payroll.PayrollProfessionalTaxServiceImpl">
+        <property name="payrollProfessionalTaxDAO" ref="payrollProfessionalTaxDAO1"/>
+    </bean>
+    <bean id="payrollProvidentFundService1" class="com.bul.zydex.service.Payroll.PayrollProvidentFundServiceImpl">
+        <property name="payrollProvidentFundDAO" ref="payrollProvidentFundDAO1"/>
+    </bean>
+    <bean id="payrollTaxRuleService1" class="com.bul.zydex.service.Payroll.PayrollTaxRuleServiceImpl">
+        <property name="payrollTaxRuleDAO" ref="payrollTaxRuleDAO1"/>
+    </bean>
+    <bean id="payrollMaximumSavingTaxAmountService1" class="com.bul.zydex.service.Payroll.PayrollMaximumSavingTaxAmountServiceImpl">
+        <property name="payrollMaximumSavingTaxAmountDAO" ref="payrollMaximumSavingTaxAmountDAO1"/>
+    </bean>
+    <bean id="payrollDeductionService1" class="com.bul.zydex.service.Payroll.PayrollDeductionServiceImpl">
+        <property name="payrollDeductionDAO" ref="payrollDeductionDAO1"/>
+    </bean>
+    <bean id="payrollRecurringDeductionService1" class="com.bul.zydex.service.Payroll.PayrollRecurringDeductionServiceImpl">
+        <property name="payrollRecurringDeductionDAO" ref="payrollRecurringDeductionDAO1"/>
+    </bean>
+    <bean id="payrollAdditionalAmountService1" class="com.bul.zydex.service.Payroll.PayrollAdditionalAmountServiceImpl">
+        <property name="payrollAdditionalAmountDAO" ref="payrollAdditionalAmountDAO1"/>
+    </bean>
+    <bean id="payrollRecurringAdditionalAmountService1" class="com.bul.zydex.service.Payroll.PayrollRecurringAdditionalAmountServiceImpl">
+        <property name="payrollRecurringAdditionalAmountDAO" ref="payrollRecurringAdditionalAmountDAO1"/>
+    </bean>
+    <bean id="payrollCommissionService1" class="com.bul.zydex.service.Payroll.PayrollCommissionServiceImpl">
+        <property name="payrollCommissionDAO" ref="payrollCommissionDAO1"/>
+    </bean>
+    <bean id="payrollBonusService1" class="com.bul.zydex.service.Payroll.PayrollBonusServiceImpl">
+        <property name="payrollBonusDAO" ref="payrollBonusDAO1"/>
+    </bean>
+    <bean id="payrollFinancialYearService1" class="com.bul.zydex.service.Payroll.PayrollFinancialYearServiceImpl">
+        <property name="payrollFinancialYearDAO" ref="payrollFinancialYearDAO1" />
+    </bean>
+    <bean id="payrollFormSixteenMasterService1" class="com.bul.zydex.service.Payroll.PayrollFormSixteenMasterServiceImpl">
+        <property name="payrollFormSixteenMasterDAO" ref="payrollFormSixteenMasterDAO1" />
+    </bean>
+    <bean id="payrollStationWiseSavingTaxService1" class="com.bul.zydex.service.Payroll.PayrollStationWiseSavingTaxServiceImpl">
+        <property name="payrollStationWiseSavingTaxDAO" ref="payrollStationWiseSavingTaxDAO1" />
+    </bean>
+    <bean id="employeeTypeService1" class="com.bul.zydex.service.emp.EmployeeTypeServiceImpl">
+        <property name="employeeTypeDAO" ref="employeeTypeDAO1" />
+    </bean>
+    
+    <bean id="employeeSubTypeService1" class="com.bul.zydex.service.emp.EmployeeSubTypeServiceImpl">
+        <property name="employeeSubTypeDAO" ref="employeeSubTypeDAO1" />
+    </bean>
+    <bean id="payrollPfCheckService1" class="com.bul.zydex.service.Payroll.PayrollPfCheckServiceImpl">
+        <property name="payrollPfCheckDAO" ref="payrollPfCheckDAO1" />
+    </bean>
+    <bean id="payrollPtCheckService1" class="com.bul.zydex.service.Payroll.PayrollPtCheckServiceImpl">
+        <property name="payrollPtCheckDAO" ref="payrollPtCheckDAO1" />
+    </bean>
+    <bean id="employeeMultipleSalaryService1" class="com.bul.zydex.service.Payroll.EmployeeMultipleSalaryServiceImpl">
+        <property name="employeeMultipleSalaryDAO" ref="employeeMultipleSalaryDAO1" />
+    </bean>
+    <bean id="employeeTypeWiseSalaryService1" class="com.bul.zydex.service.Payroll.EmployeeTypeWiseSalaryServiceImpl">
+        <property name="employeeTypeWiseSalaryDAO" ref="employeeTypeWiseSalaryDAO1" />
+    </bean>
+    <bean id="employeeAdditionalSalaryService1" class="com.bul.zydex.service.Payroll.EmployeeAdditionalSalaryServiceImpl">
+        <property name="employeeAdditionalSalaryDAO" ref="employeeAdditionalSalaryDAO1" />
+    </bean>
+    <bean id="employeeDeductionAmountService1" class="com.bul.zydex.service.Payroll.EmployeeDeductionAmountServiceImpl">
+        <property name="employeeDeductionAmountDAO" ref="employeeDeductionAmountDAO1" />
+    </bean>
+    <bean id="employeeSalaryProcessService1" class="com.bul.zydex.service.Payroll.EmployeeSalaryProcessServiceImpl">
+        <property name="employeeSalaryProcessDAO" ref="employeeSalaryProcessDAO1" />
+    </bean>
+    <bean id="additionalAmountCheckService1" class="com.bul.zydex.service.Payroll.AdditionalAmountCheckServiceImpl">
+        <property name="additionalAmountCheckDAO" ref="additionalAmountCheckDAO1" />
+    </bean>
+    <bean id="payrollSalaryLockService1" class="com.bul.zydex.service.Payroll.PayrollSalaryLockServiceImpl">
+        <property name="payrollSalaryLockDAO" ref="payrollSalaryLockDAO1" />
+    </bean>
+    <bean id="payrollSavingAmountService1" class="com.bul.zydex.service.Payroll.PayrollSavingAmountServiceImpl">
+        <property name="payrollSavingAmountDAO" ref="payrollSavingAmountDAO1" />
+    </bean>
+    <bean id="certificateTemplateService1" class="com.bul.zydex.service.Payroll.CertificateTemplateServiceImpl">
+        <property name="certificateTemplateDAO" ref="certificateTemplateDAO1" />
+    </bean>
+    <bean id="employeeExcelRecordService1" class="com.bul.zydex.service.Payroll.EmployeeExcelRecordServiceImpl">
+        <property name="employeeExcelRecordDAO" ref="employeeExcelRecordDAO1" />
+    </bean>
+    <bean id="companyMasterService1" class="com.bul.zydex.service.company.CompanyMasterServiceImpl">
+        <property name="companyMasterDAO" ref="companyMasterDAO1" />
+    </bean>
+    <bean id="employeePolicyDetailService1" class="com.bul.zydex.service.EmployeePolicyDetail.EmployeePolicyDetailServiceImpl">
+        <property name="employeePolicyDetailDAO" ref="employeePolicyDetailDAO1" />
+    </bean>
+    <bean id="payrollLoanDetailService1" class="com.bul.zydex.service.Payroll.PayrollLoanDetailServiceImpl">
+        <property name="payrollLoanDetailDAO" ref="payrollLoanDetailDAO1" />
+    </bean>
+    <bean id="payrollEsicDeductionService1" class="com.bul.zydex.service.Payroll.PayrollEsicDeductionServiceImpl">
+        <property name="payrollEsicDeductionDAO" ref="payrollEsicDeductionDAO1" />
+    </bean>
+    <bean id="payrollLoanRemainingAmountService1" class="com.bul.zydex.service.Payroll.PayrollLoanRemainingAmountServiceImpl">
+        <property name="payrollLoanRemainingAmountDAO" ref="payrollLoanRemainingAmountDAO1" />
+    </bean>
+    <bean id="employeeIncentiveMonthwiseService1" class="com.bul.zydex.service.Payroll.EmployeeIncentiveMonthwiseServiceImpl">
+        <property name="employeeIncentiveMonthwiseDAO" ref="employeeIncentiveMonthwiseDAO1" />
+    </bean>
+    <bean id="employeePayrollIncentiveService1" class="com.bul.zydex.service.Payroll.EmployeePayrollIncentiveServiceImpl">
+        <property name="employeePayrollIncentiveDAO" ref="employeePayrollIncentiveDAO1" />
+    </bean> 
+    <bean id="recruitmentService1" class="com.bul.zydex.service.Recruitment.RecruitmentServiceImpl">
+        <property name="recruitmentDAO" ref="recruitmentDAO1"/>
+    </bean>
+    <bean id="jobtypeMasterService1" class="com.bul.zydex.service.Recruitment.JobtypeMasterServiceImpl">
+        <property name="jobtypeMasterDAO" ref="jobtypeMasterDAO1" />
+    </bean> 
+    <bean id="mprMasterService1" class="com.bul.zydex.service.Recruitment.MprMasterServiceImpl">
+        <property name="mprMasterDAO" ref="mprMasterDAO1" />
+    </bean> 
+    <bean id="mprEmployeeTypeMasterService1" class="com.bul.zydex.service.Recruitment.MprEmployeeTypeMasterServiceImpl">
+        <property name="mprEmployeeTypeMasterDAO" ref="mprEmployeeTypeMasterDAO1" />
+    </bean> 
+    <bean id="mprEmployeeCategoryService1" class="com.bul.zydex.service.Recruitment.MprEmployeeCategoryServiceImpl">
+        <property name="mprEmployeeCategoryDAO" ref="mprEmployeeCategoryDAO1" />
+    </bean> 
+    <bean id="qulificationMasterService1" class="com.bul.zydex.service.Recruitment.QulificationMasterServiceImpl">
+        <property name="qulificationMasterDAO" ref="qulificationMasterDAO1" />
+    </bean>
+    <bean id="vacancyMasterService1" class="com.bul.zydex.service.Vacancy.VacancyMasterServiceImpl">
+        <property name="vacancyMasterDAO" ref="vacancyMasterDAO1" />
+    </bean> 
+    <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+        <property name="beanNames">
+            <list>
+                <value>*Service1*</value>
+            </list>
+        </property>
+        <!--        <property name="interceptorNames">
+            <list>
+                <value>transactionInterceptor</value>
+            </list>
+        </property>-->
+    </bean> 
+    <bean id="questionLibraryService1" class="com.bul.zydex.service.questionlibrary.QuestionLibraryServiceImpl">
+        <property name="questionLibraryDAO" ref="questionLibraryDAO1" />
+    </bean>  
+    <bean id="questionAnsService1" class="com.bul.zydex.service.questionlibrary.QuestionAnsServiceImpl">
+        <property name="questionAnsDAO" ref="questionAnsDAO1" />
+    </bean>
+    <bean id="questionPaperService1" class="com.bul.zydex.service.questionlibrary.QuestionPaperServiceImpl">
+        <property name="questionPaperDAO" ref="questionPaperDAO1" />
+    </bean>
+    <bean id="thoughtMasterService1" class="com.bul.zydex.service.thought.ThoughtMasterServiceImpl">
+        <property name="thoughtMasterDAO" ref="thoughtMasterDAO1" />
+    </bean>
+    <bean id="corporateVideoService1" class="com.bul.zydex.service.CorporateVideo.CorporateVideoServiceImpl">
+        <property name="corporateVideoDAO" ref="corporateVideoDAO1" />
+    </bean>
+    <bean id="galleryService1" class="com.bul.zydex.service.thought.GalleryServiceImpl">
+        <property name="galleryDAO" ref="galleryDAO1" />
+    </bean>
+    <bean id="rAndRService1" class="com.bul.zydex.service.thought.RAndRServiceImpl">
+        <property name="rAndRDAO" ref="rAndRDAO1" />
+    </bean>
+    <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+        <property name="beanNames">
+            <list>
+                <value>*Service1*</value>
+            </list>
+        </property>
+        <!--        <property name="interceptorNames">
+            <list>
+                <value>transactionInterceptor</value>
+            </list>
+        </property>-->
+    </bean>
+    <bean id="approvalMasterService1" class="com.bul.zydex.service.Approval.ApprovalMasterServiceImpl">
+        <property name="approvalMasterDAO" ref="approvalMasterDAO1" />
+    </bean>
+    <bean id="approvalUserService1" class="com.bul.zydex.service.Approval.ApprovalUserServiceImpl">
+        <property name="approvalUserDAO" ref="approvalUserDAO1" />
+    </bean>
+    <bean id="candidateJobApplyService1" class="com.bul.zydex.service.CandidateJobApply.CandidateJobApplyServiceImpl">
+        <property name="candidateJobApplyDAO" ref="candidateJobApplyDAO1" />
+    </bean>
+    <bean id="questionDetailsService1" class="com.bul.zydex.service.questionlibrary.QuestionDetailsServiceImpl">
+        <property name="questionDetailsDAO" ref="questionDetailsDAO1" />
+    </bean>
+    <bean id="applayJobUserMasterService1" class="com.bul.zydex.service.ApplayJobUserMaster.ApplayJobUserMasterServiceImpl">
+        <property name="applayJobUserMasterDAO" ref="applayJobUserMasterDAO1" />
+    </bean>
+    <bean id="mprApprovalService1" class="com.bul.zydex.service.MprApproval.MprApprovalServiceImpl">
+        <property name="mprApprovalDAO" ref="mprApprovalDAO1" />
+    </bean>
+    <bean id="onlineAssessmentService1" class="com.bul.zydex.service.Recruitment.OnlineAssessmentServiceImpl">
+        <property name="onlineAssessmentDAO" ref="onlineAssessmentDAO1" />
+    </bean>
+    <bean id="trainingTypeService1" class="com.bul.zydex.service.Training.TrainingTypeServiceImpl">
+        <property name="trainingTypeDAO" ref="trainingTypeDAO1" />
+    </bean>
+    <bean id="trainingSubTypeService1" class="com.bul.zydex.service.Training.TrainingSubTypeServiceImpl">
+        <property name="trainingSubTypeDAO" ref="trainingSubTypeDAO1" />
+    </bean>
+    <bean id="trainingSubMasterService1" class="com.bul.zydex.service.Training.TrainingSubMasterServiceImpl">
+        <property name="trainingSubMasterDAO" ref="trainingSubMasterDAO1" />
+    </bean>
+    <bean id="trainingMasterService1" class="com.bul.zydex.service.Training.TrainingMasterServiceImpl">
+        <property name="trainingMasterDAO" ref="trainingMasterDAO1" />
+    </bean>
+    <bean id="trainerService1" class="com.bul.zydex.service.Training.TrainerServiceImpl">
+        <property name="trainerDAO" ref="trainerDAO1" />
+    </bean>
+    <bean id="recruitmentMppApprovalService1" class="com.bul.zydex.service.RecruitmentMppApproval.RecruitmentMppApprovalServiceImpl">
+        <property name="recruitmentMppApprovalDAO" ref="recruitmentMppApprovalDAO1" />
+    </bean>
+    <bean id="trainingAttendanceService1" class="com.bul.zydex.service.Training.TrainingAttendanceServiceImpl">
+        <property name="trainingAttendanceDAO" ref="trainingAttendanceDAO1" />
+    </bean>
+    <bean id="trainingIdentificationService1" class="com.bul.zydex.service.Training.TrainingIdentificationServiceImpl">
+        <property name="trainingIdentificationDAO" ref="trainingIdentificationDAO1" />
+    </bean>
+    <bean id="candidateJobApplicationService1" class="com.bul.zydex.service.Recruitment.CandidateJobApplicationServiceImpl">
+        <property name="candidateJobApplicationDAO" ref="candidateJobApplicationDAO1" />
+    </bean>
+    <bean id="classifiedBoxService1" class="com.bul.zydex.service.ClassifiedBox.ClassifiedBoxServiceImpl">
+        <property name="classifiedBoxDAO" ref="classifiedBoxDAO1" />
+    </bean>
+    <bean id="questionAnswerSubmitService1" class="com.bul.zydex.service.QuestionAnswerSubmit.QuestionAnswerSubmitServiceImpl">
+        <property name="questionAnswerSubmitDAO" ref="questionAnswerSubmitDAO1" />
+    </bean>
+    <bean id="employeeFeedbackService1" class="com.bul.zydex.service.Training.EmployeeFeedbackServiceImpl">
+        <property name="employeeFeedbackDAO" ref="employeeFeedbackDAO1" />
+    </bean>
+    <bean id="candidateF2FApprovalService1" class="com.bul.zydex.service.CandidateF2FApproval.CandidateF2FApprovalServiceImpl">
+        <property name="candidateF2FApprovalDAO" ref="candidateF2FApprovalDAO1" />
+    </bean>
+    <bean id="candidateF2FRequestService1" class="com.bul.zydex.service.CandidateF2FRequest.CandidateF2FRequestServiceImpl">
+        <property name="candidateF2FRequestDAO" ref="candidateF2FRequestDAO1" />
+    </bean>
+    <bean id="candidateResultStatusService1" class="com.bul.zydex.service.QuestionAnswerSubmit.CandidateResultStatusServiceImpl">
+        <property name="candidateResultStatusDAO" ref="candidateResultStatusDAO1" />
+    </bean>
+    <bean id="trainingAssessmentService1" class="com.bul.zydex.service.Training.TrainingAssessmentServiceImpl">
+        <property name="trainingAssessmentDAO" ref="trainingAssessmentDAO1" />
+    </bean>
+    <bean id="trainingQuestionAnswerSubmitService1" class="com.bul.zydex.service.Training.TrainingQuestionAnswerSubmitServiceImpl">
+        <property name="trainingQuestionAnswerSubmitDAO" ref="trainingQuestionAnswerSubmitDAO1" />
+    </bean>
+    <bean id="trainingResultStatusService1" class="com.bul.zydex.service.Training.TrainingResultStatusServiceImpl">
+        <property name="trainingResultStatusDAO" ref="trainingResultStatusDAO1" />
+    </bean>
+    <bean id="trainingFeedbackService1" class="com.bul.zydex.service.Training.TrainingFeedbackServiceImpl">
+        <property name="trainingFeedbackDAO" ref="trainingFeedbackDAO1" />
+    </bean>
+    <bean id="ctcAllowanceService1" class="com.bul.zydex.service.policy.CtcAllowanceServiceImpl">
+        <property name="ctcAllowanceDAO" ref="ctcAllowanceDAO1"/>
+    </bean>
+    <bean id="employeeCtcDetailService1" class="com.bul.zydex.service.policy.EmployeeCtcDetailServiceImpl">
+        <property name="employeeCtcDetailDAO" ref="employeeCtcDetailDAO1"/>
+    </bean>
+    <bean id="retirementAgeService1" class="com.bul.zydex.service.Payroll.RetirementAgeServiceImpl">
+        <property name="retirementAgeDAO" ref="retirementAgeDAO1"/>
+    </bean>
+    <bean id="recruitmentApprovalHistoryService1" class="com.bul.zydex.service.RecruitmentApprovalHistory.RecruitmentApprovalHistoryServiceImpl">
+        <property name="recruitmentApprovalHistoryDAO" ref="recruitmentApprovalHistoryDAO1"/>
+    </bean>
+    <bean id="mprApprovalHistoryService1" class="com.bul.zydex.service.RecruitmentApprovalHistory.MprApprovalHistoryServiceImpl">
+        <property name="MprApprovalHistoryDAO" ref="MprApprovalHistoryDAO1"/>
+    </bean>
+    <bean id="payrollTaxDeductionMasterService1" class="com.bul.zydex.service.Payroll.PayrollTaxDeductionMasterServiceImpl">
+        <property name="payrollTaxDeductionMasterDao" ref="payrollTaxDeductionMasterDao1"/>
+    </bean>
+    <bean id="payrollTaxDeductionComponentService1" class="com.bul.zydex.service.Payroll.PayrollTaxDeductionComponentServiceImpl">
+        <property name="payrollTaxDeductionComponentDao" ref="payrollTaxDeductionComponentDao1"/>
+    </bean>
+    <bean id="employeeCtcDetailSalaryService1" class="com.bul.zydex.service.EmployeeCtcDetailSalary.EmployeeCtcDetailSalaryServiceImpl">
+        <property name="employeeCtcDetailSalaryDAO" ref="employeeCtcDetailSalaryDAO1"/>
+    </bean>
+   
+    <bean id="taxDeductionDecarationSubmitService1" class="com.bul.zydex.service.Payroll.TaxDeductionDecarationSubmitServiceImpl">
+        <property name="taxDeductionDecarationSubmitDAO" ref="taxDeductionDecarationSubmitDAO1"/>
+    </bean>
+    <bean id="taxSavingSubmitService1" class="com.bul.zydex.service.Payroll.TaxSavingSubmitServiceImpl">
+        <property name="taxSavingSubmitDAO" ref="taxSavingSubmitDAO1"/>
+    </bean>
+    <bean id="payrollTaxDeclarationPeriodMasterService1" class="com.bul.zydex.service.Payroll.PayrollTaxDeclarationPeriodMasterServiceImpl">
+        <property name="payrollTaxDeclarationPeriodMasterDao" ref="payrollTaxDeclarationPeriodMasterDao1"/>
+    </bean>
+    <bean id="payrollTaxRateMasterService1" class="com.bul.zydex.service.Payroll.PayrollTaxRateMasterServiceImpl">
+        <property name="payrollTaxRateMasterDao" ref="payrollTaxRateMasterDao1" />
+    </bean>
+    <bean id="taxDeductionDeclarationSavingStatusService1" class="com.bul.zydex.service.Payroll.TaxDeductionDeclarationSavingStatusServiceImpl">
+        <property name="taxDeductionDeclarationSavingStatusDAO" ref="taxDeductionDeclarationSavingStatusDAO1" />
+    </bean>
+
+    <bean id="fullAndFinalSettlementService1" class="com.bul.zydex.service.resignation.FullAndFinalSettlementServiceImpl">
+        <property name="fullAndFinalSettlementDAO" ref="fullAndFinalSettlementDAO1"/>
+    </bean>
+    <bean id="formateFullNdFinalLetterService1" class="com.bul.zydex.service.FormateFullNdFinalLetter.FormateFullNdFinalLetterServiceImpl">
+        <property name="formateFullNdFinalLetterDAO" ref="formateFullNdFinalLetterDAO1"/>
+    </bean>
+    <bean id="kaizenMasterService1" class="com.bul.zydex.service.Kaizen.KaizenMasterServiceImpl">
+        <property name="kaizenMasterDAO" ref="kaizenMasterDAO1"/>
+    </bean>
+    <bean id="kaizenApprovalService1" class="com.bul.zydex.service.Kaizen.KaizenApprovalServiceImpl">
+        <property name="kaizenApprovalDAO" ref="kaizenApprovalDAO1"/>
+    </bean>
+    <bean id="emergencyContactService1" class="com.bul.zydex.service.EmergencyContactServiceImpl">
+        <property name="emergencyContactDAO" ref="emergencyContactDAO1" />
+    </bean>
+    <bean id="userRightDescriptionService1" class="com.bul.zydex.service.UserRight.UserRightDescriptionServiceImpl">
+        <property name="userRightDescriptionDAO" ref="userRightDescriptionDAO1" />
+    </bean>
+    <bean id="emailMetaTagService1" class="com.bul.zydex.service.EmailMetaTagServiceImpl">
+        <property name="emailMetaTagDAO" ref="emailMetaTagDAO1" />
+    </bean>
+    <bean id="modulesService1" class="com.bul.zydex.service.ModulesServiceImpl">
+        <property name="modulesDAO" ref="modulesDAO1" />
+    </bean>
+    <bean id="displaymorNotesService1" class="com.bul.zydex.service.Payroll.DisplaymorNotesServiceImpl">
+        <property name="displaymorNotesDAO" ref="displaymorNotesDAO1" />
+    </bean>
+    <bean id="policyCreateService1" class="com.bul.zydex.service.policy.PolicyCreateServiceImpl">
+        <property name="policyCreateDAO" ref="policyCreateDAO1" />
+    </bean>
+    <bean id="policyDropDownService1" class="com.bul.zydex.service.policy.PolicyDropDownServiceImpl">
+        <property name="PolicyDropDownDAO" ref="PolicyDropDownDAO1" />
+    </bean>
+    <bean id="payrollPfRecordService1" class="com.bul.zydex.service.Payroll.PayrollPfRecordServiceImpl">
+        <property name="payrollPfRecordDAO" ref="payrollPfRecordDAO1" />
+    </bean>
+    <bean id="candidateApplyJob2Service1" class="com.bul.zydex.service.CandidateJobApply.CandidateApplyJob2ServiceImpl">
+        <property name="candidateApplyJob2DAO" ref="candidateApplyJob2DAO1" />
+    </bean>
+    <bean id="candidateFamilyBackgroundService1" class="com.bul.zydex.service.CandidateJobApply.CandidateFamilyBackgroundServiceImpl">
+        <property name="candidateFamilyBackgroundDAO" ref="candidateFamilyBackgroundDAO1" />
+    </bean>
+    <bean id="candidateAcademicQualificationService1" class="com.bul.zydex.service.CandidateJobApply.CandidateAcademicQualificationServiceImpl">
+        <property name="candidateAcademicQualificationDAO" ref="candidateAcademicQualificationDAO1" />
+    </bean>
+    <bean id="candidateExperienceDetailService1" class="com.bul.zydex.service.CandidateJobApply.CandidateExperienceDetailServiceImpl">
+        <property name="candidateExperienceDetailDAO" ref="candidateExperienceDetailDAO1" />
+    </bean>
+    <bean id="candidateOtherReferencesService1" class="com.bul.zydex.service.CandidateJobApply.CandidateOtherReferencesServiceImpl">
+        <property name="candidateOtherReferencesDAO" ref="candidateOtherReferencesDAO1" />
+    </bean> 
+    <bean id="employeeFamilyDetailsService1" class="com.bul.zydex.service.EmployeeFamilyDetails.EmployeeFamilyDetailsServiceImpl">
+        <property name="employeeFamilyDetailsDAO" ref="employeeFamilyDetailsDAO1" />
+    </bean> 
+    <bean id="employeeSchoolDetailsService1" class="com.bul.zydex.service.EmployeeSchoolDetails.EmployeeSchoolDetailsServiceImpl">
+        <property name="employeeSchoolDetailsDAO" ref="employeeSchoolDetailsDAO1" />
+    </bean> 
+    <bean id="employeeCollegeDetailsService1" class="com.bul.zydex.service.EmployeeCollegeDetails.EmployeeCollegeDetailsServiceImpl">
+        <property name="employeeCollegeDetailsDAO" ref="employeeCollegeDetailsDAO1" />
+    </bean> 
+    <bean id="employeeComputerKnowledgeDetailsService1" class="com.bul.zydex.service.EmployeeComputerKnowledgeDetails.EmployeeComputerKnowledgeDetailsServiceImpl">
+        <property name="employeeComputerKnowledgeDetailsDAO" ref="employeeComputerKnowledgeDetailsDAO1" />
+    </bean> 
+    <bean id="gradeService1" class="com.bul.zydex.service.grade.GradeServiceImpl">
+        <property name="gradeDAO" ref="gradeDAO1" />
+    </bean> 
+    <bean id="employeeGradeDetailsService1" class="com.bul.zydex.service.EmployeeGradeDetails.EmployeeGradeDetailsServiceImpl">
+        <property name="employeeGradeDetailsDAO" ref="employeeGradeDetailsDAO1" />
+    </bean> 
+    <bean id="classMasterService1" class="com.bul.zydex.service.classMaster.ClassMasterServiceImpl">
+        <property name="classMasterDAO" ref="classMasterDAO1" />
+    </bean> 
+    <bean id="employeeClassessAssignedDetailsService1" class="com.bul.zydex.service.EmployeeClassessAssignedDetails.EmployeeClassessAssignedDetailsServiceImpl">
+        <property name="employeeClassessAssignedDetailsDAO" ref="employeeClassessAssignedDetailsDAO1" />
+    </bean> 
+    <bean id="employeeExtraDutiesAssignedService1" class="com.bul.zydex.service.EmployeeExtraDutiesAssigned.EmployeeExtraDutiesAssignedServiceImpl">
+        <property name="employeeExtraDutiesAssignedDAO" ref="employeeExtraDutiesAssignedDAO1" />
+    </bean> 
+    <bean id="employeeTeachingExperienceDetailsService1" class="com.bul.zydex.service.EmployeeTeachingExperienceDetails.EmployeeTeachingExperienceDetailsServiceImpl">
+        <property name="employeeTeachingExperienceDetailsDAO" ref="employeeTeachingExperienceDetailsDAO1" />
+    </bean> 
+    <bean id="salarySlabService1" class="com.bul.zydex.service.SalarySlab.SalarySlabServiceImpl">
+        <property name="salarySlabDAO" ref="salarySlabDAO1" />
+    </bean> 
+    <bean id="subjectService1" class="com.bul.zydex.service.Subject.SubjectServiceImpl">
+        <property name="subjectDAO" ref="subjectDAO1" />
+    </bean> 
+    <bean id="employeeTeachingSubjectsService1" class="com.bul.zydex.service.EmployeeTeachingSubjects.EmployeeTeachingSubjectsServiceImpl">
+        <property name="employeeTeachingSubjectsDAO" ref="employeeTeachingSubjectsDAO1" />
+    </bean> 
+    <bean id="dynamicApprovalSettingService1" class="com.bul.zydex.service.Approval.DynamicApprovalSettingServiceImpl">
+        <property name="dynamicApprovalSettingDAO" ref="dynamicApprovalSettingDAO1" />
+    </bean>
+    <bean id="dynamicApprovalSettingApproverService1" class="com.bul.zydex.service.Approval.DynamicApprovalSettingApproverServiceImpl">
+        <property name="dynamicApprovalSettingApproverDAO" ref="dynamicApprovalSettingApproverDAO1" />
+    </bean>
+    <bean id="dynamicApprovalSettingEmailService1" class="com.bul.zydex.service.Approval.DynamicApprovalSettingEmailServiceImpl">
+        <property name="dynamicApprovalSettingEmailDAO" ref="dynamicApprovalSettingEmailDAO1" />
+    </bean>
+    <bean id="moduleService1" class="com.bul.zydex.service.Module.ModuleServiceImpl">
+        <property name="moduleDAO" ref="moduleDAO1" />
+    </bean>
+    <bean id="leaveEmployeeDetailsApprovalHistoryService1" class="com.bul.zydex.service.leave.LeaveEmployeeDetailsApprovalHistoryServiceImpl">
+        <property name="leaveEmployeeDetailsApprovalHistoryDAO" ref="leaveEmployeeDetailsApprovalHistoryDAO1" />
+    </bean>
+    <bean id="attendanceRegularizationApprovalHistoryService1" class="com.bul.zydex.service.attendanceRegularization.AttendanceRegularizationApprovalHistoryServiceImpl">
+        <property name="attendanceRegularizationApprovalHistoryDAO" ref="attendanceRegularizationApprovalHistoryDAO1" />
+    </bean>
+    <bean id="attendanceDetailService1" class="com.bul.zydex.service.AttendanceDetail.AttendanceDetailServiceImpl">
+        <property name="attendanceDetailDAO" ref="attendanceDetailDAO1" />
+    </bean>
+    <bean id="projectManagementService1" class="com.bul.zydex.service.ProjectManagement.ProjectManagementServiceImpl">
+        <property name="projectManagementDAO" ref="projectManagementDAO1" />
+    </bean> 
+    <bean id="clientMasterService1" class="com.bul.zydex.service.ProjectManagement.ClientMasterServiceImpl">
+        <property name="clientMasterDAO" ref="clientMasterDAO1" />
+    </bean> 
+    <bean id="stateMasterService1" class="com.bul.zydex.service.ProjectManagement.StateMasterServiceImpl">
+        <property name="stateMasterDAO" ref="stateMasterDAO1" />
+    </bean> 
+    <bean id="policyReadHistoryService1" class="com.bul.zydex.service.policy.PolicyReadHistoryServiceImpl">
+        <property name="policyReadHistoryDAO" ref="policyReadHistoryDAO1" />
+    </bean> 
+    <bean id="kaizenApprovalHistoryService1" class="com.bul.zydex.service.Kaizen.KaizenApprovalHistoryServiceImpl">
+        <property name="kaizenApprovalHistoryDAO" ref="kaizenApprovalHistoryDAO1" />
+    </bean> 
+    <bean id="priorityMasterService1" class="com.bul.zydex.service.ProjectManagement.PriorityMasterServiceImpl">
+        <property name="priorityMasterDAO" ref="priorityMasterDAO1" />
+    </bean> 
+    <bean id="createTaskService1" class="com.bul.zydex.service.ProjectManagement.CreateTaskServiceImpl">
+        <property name="createTaskDAO" ref="createTaskDAO1" />
+    </bean> 
+    <bean id="taskEmployeeDepartmentService1" class="com.bul.zydex.service.ProjectManagement.TaskEmployeeDepartmentServiceImpl">
+        <property name="taskEmployeeDepartmentDAO" ref="taskEmployeeDepartmentDAO1" />
+    </bean> 
+    <bean id="projectTaskDailyDetailService1" class="com.bul.zydex.service.ProjectManagement.ProjectTaskDailyDetailServiceImpl">
+        <property name="projectTaskDailyDetailDAO" ref="projectTaskDailyDetailDAO1" />
+    </bean>
+    
+    <bean id="eSICMasterService1" class="com.bul.zydex.service.PayrollESIC.ESICMasterServiceImpl">
+        <property name="eSICMasterDAO" ref="eSICMasterDAO1" />
+    </bean>
+    <bean id="companyEmployeeRightsService1" class="com.bul.zydex.service.company.CompanyEmployeeRightsServiceImpl">
+        <property name="companyEmployeeRightsDAO" ref="companyEmployeeRightsDAO1" />
+    </bean>
+    <bean id="travelAttachmentService1" class="com.bul.zydex.service.travel.TravelAttachmentServiceImpl">
+        <property name="travelAttachmentDAO" ref="travelAttachmentDAO1" />
+    </bean> 
+    <bean id="pfSettingService1" class="com.bul.zydex.service.Payroll.PfSettingServiceImpl">
+        <property name="pfSettingDAO" ref="pfSettingDAO1" />
+    </bean>
+    <bean id="pfAllowanceSettingService1" class="com.bul.zydex.service.Payroll.PfAllowanceSettingServiceImpl">
+        <property name="pfAllowanceSettingDAO" ref="pfAllowanceSettingDAO1" />
+    </bean>
+    <bean id="overTimeEligibilityMasterService1" class="com.bul.zydex.service.overTime.OverTimeEligibilityMasterServiceImpl">
+        <property name="overTimeEligibilityMasterDAO" ref="overTimeEligibilityMasterDAO1" />
+    </bean>
+    <bean id="overTimeEligibilityAllowanceService1" class="com.bul.zydex.service.overTime.OverTimeEligibilityAllowanceServiceImpl">
+        <property name="overTimeEligibilityAllowanceDAO" ref="overTimeEligibilityAllowanceDAO1" />
+    </bean>
+    <bean id="allowanceAdjustmentMasterService1" class="com.bul.zydex.service.AllowanceAdjustment.AllowanceAdjustmentMasterServiceImpl">
+        <property name="allowanceAdjustmentMasterDAO" ref="allowanceAdjustmentMasterDAO1" />
+    </bean>
+    <bean id="allowanceAdjustmentAllowancesService1" class="com.bul.zydex.service.AllowanceAdjustment.AllowanceAdjustmentAllowancesServiceImpl">
+        <property name="allowanceAdjustmentAllowancesDAO" ref="allowanceAdjustmentAllowancesDAO1" />
+    </bean>
+    <bean id="tDSSetupMasterService1" class="com.bul.zydex.service.TDSSetupMaster.TDSSetupMasterServiceImpl">
+        <property name="tDSSetupMasterDAO" ref="tDSSetupMasterDAO1" />
+    </bean>
+    <bean id="expenseAttachmentService1" class="com.bul.zydex.service.expense.ExpenseAttachmentServiceImpl">
+        <property name="expenseAttachmentDAO" ref="expenseAttachmentDAO1" />
+    </bean>
+    <bean id="employeeWelfareFundMasterService1" class="com.bul.zydex.service.EmployeeWelFareFund.EmployeeWelfareFundMasterServiceImpl">
+        <property name="employeeWelfareFundMasterDAO" ref="employeeWelfareFundMasterDAO1" />
+    </bean>
+    <bean id="employeeWelfareFundMonthService1" class="com.bul.zydex.service.EmployeeWelFareFund.EmployeeWelfareFundMonthServiceImpl">
+        <property name="employeeWelfareFundMonthDAO" ref="employeeWelfareFundMonthDAO1" />
+    </bean>
+    <bean id="temporaryEmployeeRegistrationService1" class="com.bul.zydex.service.Temporary.TemporaryEmployeeRegistrationServiceImpl">
+        <property name="temporaryEmployeeRegistrationDAO" ref="temporaryEmployeeRegistrationDAO1" />
+    </bean>
+    <bean id="temporaryEmployeePolicyDetailService1" class="com.bul.zydex.service.Temporary.TemporaryEmployeePolicyDetailServiceImpl">
+        <property name="temporaryEmployeePolicyDetailDAO" ref="temporaryEmployeePolicyDetailDAO1" />
+    </bean>
+    <bean id="temporaryEmployeeCtcDetailService1" class="com.bul.zydex.service.Temporary.TemporaryEmployeeCtcDetailServiceImpl">
+        <property name="temporaryEmployeeCtcDetailDAO" ref="temporaryEmployeeCtcDetailDAO1" />
+    </bean>
+    <bean id="historyEmployeeRegistrationService1" class="com.bul.zydex.service.History.HistoryEmployeeRegistrationServiceImpl">
+        <property name="historyEmployeeRegistrationDAO" ref="historyEmployeeRegistrationDAO1" />
+    </bean>
+    <bean id="historyEmployeePolicyDetailService1" class="com.bul.zydex.service.History.HistoryEmployeePolicyDetailServiceImpl">
+        <property name="historyEmployeePolicyDetailDAO" ref="historyEmployeePolicyDetailDAO1" />
+    </bean>
+    <bean id="historyEmployeeCtcDetailService1" class="com.bul.zydex.service.History.HistoryEmployeeCtcDetailServiceImpl">
+        <property name="historyEmployeeCtcDetailDAO" ref="historyEmployeeCtcDetailDAO1" />
+    </bean>
+    <bean id="arreasAllowanceForPreviousMonthService1" class="com.bul.zydex.service.Payroll.ArreasAllowanceForPreviousMonthServiceImpl">
+        <property name="arreasAllowanceForPreviousMonthDAO" ref="arreasAllowanceForPreviousMonthDAO1" />
+    </bean>
+    <bean id="pendingSalaryAndAllowanceForPreviousMonthService1" class="com.bul.zydex.service.Payroll.PendingSalaryAndAllowanceForPreviousMonthServiceImpl">
+        <property name="pendingSalaryAndAllowanceForPreviousMonthDAO" ref="pendingSalaryAndAllowanceForPreviousMonthDAO1" />
+    </bean>
+    <bean id="costCenterMasterService1" class="com.bul.zydex.service.CostCenterMaster.CostCenterMasterServiceImpl">
+        <property name="costCenterMasterDAO" ref="costCenterMasterDAO1" />
+    </bean>
+    <bean id="esicCalculationService1" class="com.bul.zydex.service.Payroll.EsicCalculationServiceImpl">
+        <property name="esicCalculationDAO" ref="esicCalculationDAO1" />
+    </bean>
+    <bean id="sqlDataConnectService1" class="com.bul.zydex.service.SqlDataConnect.SqlDataConnectServiceImpl">
+        <property name="sqlDataConnectDAO" ref="sqlDataConnectDAO1" />
+    </bean>
+    <bean id="section10AService1" class="com.bul.zydex.service.Section10A.Section10AServiceImpl">
+        <property name="section10ADAO" ref="section10ADAO1" />
+    </bean>
+    <bean id="deductionCreateCheckService1" class="com.bul.zydex.service.Payroll.DeductionCreateCheckServiceImpl">
+        <property name="deductionCreateCheckDAO" ref="deductionCreateCheckDAO1" />
+    </bean>
+    <bean id="hRACalculationService1" class="com.bul.zydex.service.Payroll.HRACalculationServiceImpl">
+        <property name="hRACalculationDao" ref="hRACalculationDao1" />
+    </bean>
+    <bean id="guestHouseMasterService1" class="com.bul.zydex.service.GuestHouseMaster.GuestHouseMasterServiceImpl">
+        <property name="guestHouseMasterDAO" ref="guestHouseMasterDAO1" />
+    </bean>
+    <bean id="policyDeviationService1" class="com.bul.zydex.service.PolicyDeviation.PolicyDeviationServiceImpl">
+        <property name="policyDeviationDAO" ref="policyDeviationDAO1" />
+    </bean>
+    
+    <bean id="travelLogMasterService1" class="com.bul.zydex.service.TravelLogMaster.TravelLogMasterServiceImpl">
+        <property name="travelLogMasterDAO" ref="travelLogMasterDAO1" />
+    </bean>
+    <bean id="ftpDetailsService1" class="com.bul.zydex.service.FtpDetails.FtpDetailsServiceImpl">
+        <property name="ftpDetailsDao" ref="ftpDetailsDao1" />
+    </bean>
+    <bean id="visitorDeviceMasterService1" class="com.bul.zydex.service.emprequest.VisitorDeviceMasterServiceImpl">
+        <property name="visitorDeviceMasterDAO" ref="visitorDeviceMasterDAO1" />
+    </bean>
+    <bean id="visitorCardMasterService1" class="com.bul.zydex.service.VisitorCardMaster.VisitorCardMasterServiceImpl">
+        <property name="visitorCardMasterDAO" ref="visitorCardMasterDAO1" />
+    </bean>
+    <bean id="visitorCardCheckService1" class="com.bul.zydex.service.VisitorCardCheck.VisitorCardCheckServiceImpl">
+        <property name="visitorCardCheckDAO" ref="visitorCardCheckDAO1" />
+    </bean>
+    <bean id="visitorDateTimeDataService1" class="com.bul.zydex.service.emprequest.VisitorDateTimeDataServiceImpl">
+        <property name="visitorDateTimeDataDAO" ref="visitorDateTimeDataDAO1" />
+    </bean>
+    <bean id="cityMasterService1" class="com.bul.zydex.service.CityMaster.CityMasterServiceImpl">
+        <property name="cityMasterDAO" ref="cityMasterDAO1" />
+    </bean>
+    <bean id="travelAdminMasterService1" class="com.bul.zydex.service.TravelAdminMaster.TravelAdminMasterServiceImpl">
+        <property name="travelAdminMasterDAO" ref="travelAdminMasterDAO1" />
+    </bean>
+    <bean id="voluntaryProvidentFundService1" class="com.bul.zydex.service.VoluntaryProvidentFund.VoluntaryProvidentFundServiceImpl">
+        <property name="voluntaryProvidentFundDAO" ref="voluntaryProvidentFundDAO1" />
+    </bean>
+    <bean id="nationalPensionSchemeService1" class="com.bul.zydex.service.NationalPensionScheme.NationalPensionSchemeServiceImpl">
+        <property name="nationalPensionSchemeDAO" ref="nationalPensionSchemeDAO1" />
+    </bean>
+    <bean id="travelMdMasterService1" class="com.bul.zydex.service.travel.TravelMdMasterServiceImpl">
+        <property name="travelMdMasterDAO" ref="travelMdMasterDAO1" />
+    </bean>
+    <bean id="deductionMasterService1" class="com.bul.zydex.service.Deduction.DeductionMasterServiceImpl">
+        <property name="deductionMasterDAO" ref="deductionMasterDAO1" />
+    </bean>
+    <bean id="otherEntriesSalaryProcessService1" class="com.bul.zydex.service.OtherEntriesSalaryProcessServiceImpl">
+        <property name="otherEntriesSalaryProcessDAO" ref="otherEntriesSalaryProcessDAO1" />
+    </bean>
+    <bean id="employeeDeductionDetailService1" class="com.bul.zydex.service.EmployeeDeductionDetail.EmployeeDeductionDetailServiceImpl">
+        <property name="employeeDeductionDetailDAO" ref="employeeDeductionDetailDAO1" />
+    </bean>
+    <bean id="perquisitesMasterService1" class="com.bul.zydex.service.PerquisitesMaster.PerquisitesMasterServiceImpl">
+        <property name="perquisitesMasterDAO" ref="perquisitesMasterDAO1" />
+    </bean>
+    <bean id="sbiInterestMasterService1" class="com.bul.zydex.service.Payroll.SBIInterestMasterServiceImpl">
+        <property name="sbiInterestMasterDAO" ref="sbiInterestMasterDAO1" />
+    </bean>
+    <bean id="perquisiteLoanDetailService1" class="com.bul.zydex.service.Payroll.PerquisiteLoanDetailServiceImpl">
+        <property name="perquisiteLoanDetailDAO" ref="perquisiteLoanDetailDAO1" />
+    </bean>
+    <bean id="employeePerquisitesDetailService1" class="com.bul.zydex.service.EmployeePerquisitesDetail.EmployeePerquisitesDetailServiceImpl">
+        <property name="employeePerquisitesDetailDAO" ref="employeePerquisitesDetailDAO1" />
+    </bean>
+    <bean id="heatDaysAllowanceService1" class="com.bul.zydex.service.Payroll.HeatDaysAllowanceServiceImpl">
+        <property name="heatDaysAllowanceDAO" ref="heatDaysAllowanceDAO1" />
+    </bean>
+    <bean id="goodAttendanceAllowanceService1" class="com.bul.zydex.service.Payroll.GoodAttendanceAllowanceServiceImpl">
+        <property name="goodAttendanceAllowanceDAO" ref="goodAttendanceAllowanceDAO1" />
+    </bean>
+    <bean id="companyWiseTravelAdminMasterService1" class="com.bul.zydex.service.CompanyWiseTravelAdmin.CompanyWiseTravelAdminMasterServiceImpl">
+        <property name="companyWiseTravelAdminDAO" ref="companyWiseTravelAdminDAO1" />
+    </bean>
+    <bean id="companyWiseAdminHeadMasterService1" class="com.bul.zydex.service.CompanyWiseAdminHead.CompanyWiseAdminHeadMasterServiceImpl">
+        <property name="companyWiseAdminHeadDAO" ref="companyWiseAdminHeadDAO1" />
+    </bean>
+    <bean id="expenseLogMasterService1" class="com.bul.zydex.service.ExpenseLogMaster.ExpenseLogMasterServiceImpl">
+        <property name="expenseLogMasterDAO" ref="expenseLogMasterDAO1" />
+    </bean>
+    <bean id="previousArrearCalculationService1" class="com.bul.zydex.service.Payroll.PreviousArrearCalculationServiceImpl">
+        <property name="previousArrearCalculationDAO" ref="previousArrearCalculationDAO1" />
+    </bean>
+    <bean id="previousArrearAllowanceCalculationService1" class="com.bul.zydex.service.Payroll.PreviousArrearAllowanceCalculationServiceImpl">
+        <property name="previousArrearAllowanceCalculationDAO" ref="previousArrearAllowanceCalculationDAO1" />
+    </bean>
+    <bean id="weekOffService1" class="com.bul.zydex.service.shift.WeekOffServiceImpl">
+        <property name="weekOffDAO" ref="weekOffDAO1" />
+    </bean>
+    <bean id="taxDeclarationHistoryMasterService1" class="com.bul.zydex.service.Payroll.TaxDeclarationHistoryMasterServiceImpl">
+        <property name="taxDeclarationHistoryMasterDAO" ref="taxDeclarationHistoryMasterDAO1" />
+    </bean>
+    <bean id="woffRegularizationService1" class="com.bul.zydex.service.shift.WoffRegularizationServiceImpl">
+        <property name="woffRegularizationDAO" ref="woffRegularizationDAO1" />
+    </bean>
+    <bean id="shiftRegularizationService1" class="com.bul.zydex.service.shift.ShiftRegularizationServiceImpl">
+        <property name="shiftRegularizationDAO" ref="shiftRegularizationDAO1" />
+    </bean>
+    <bean id="coffRegularizationService1" class="com.bul.zydex.service.shift.CoffRegularizationServiceImpl">
+        <property name="coffRegularizationDAO" ref="coffRegularizationDAO1" />
+    </bean>
+    <bean id="missingPunchRegularizationService1" class="com.bul.zydex.service.shift.MissingPunchRegularizationServiceImpl">
+        <property name="missingPunchRegularizationDAO" ref="missingPunchRegularizationDAO1" />
+    </bean>
+    <bean id="arTypeMasterService1" class="com.bul.zydex.service.attendanceRegularization.ArTypeMasterServiceImpl">
+        <property name="arTypeMasterDAO" ref="arTypeMasterDAO1" />
+    </bean>
+    <bean id="companywiseTravelService1" class="com.bul.zydex.service.travel.CompanywiseTravelServiceImpl">
+        <property name="companywiseTravelDAO" ref="companywiseTravelDAO1" />
+    </bean>
+    <bean id="policyDeviationForCabService1" class="com.bul.zydex.service.travel.PolicyDeviationForCabServiceImpl">
+        <property name="policyDeviationForCabDAO" ref="policyDeviationForCabDAO1"/>
+    </bean>
+    <bean id="divisionMasterService1" class="com.bul.zydex.service.DivisionMaster.DivisionMasterServiceImpl">
+        <property name="divisionMasterDao" ref="divisionMasterDao1"/>
+    </bean>
+    <bean id="coffExpiryService1" class="com.bul.zydex.service.shift.CoffExpiryServiceImpl">
+        <property name="coffExpiryDAO" ref="coffExpiryDAO1"/>
+    </bean>
+    <bean id="meetingRoomMasterService1" class="com.bul.zydex.service.MeetingRoom.MeetingRoomMasterServiceImpl">
+        <property name="meetingRoomMasterDAO" ref="meetingRoomMasterDAO1"/>
+    </bean>
+    <bean id="meetingRoomService1" class="com.bul.zydex.service.MeetingRoom.MeetingRoomServiceImpl">
+        <property name="meetingRoomDAO" ref="meetingRoomDAO1"/>
+    </bean>
+    <bean id="companyWiseReportingAuthorityMasterService1" class="com.bul.zydex.service.MeetingRoom.CompanyWiseReportingAuthorityMasterServiceImpl">
+        <property name="companyWiseReportingAuthorityMasterDAO" ref="companyWiseReportingAuthorityMasterDAO1"/>
+    </bean>
+    <bean id="companywiseTravelAdminService1" class="com.bul.zydex.service.travel.CompanywiseTravelAdminServiceImpl">
+        <property name="companywiseTravelAdminDAO" ref="companywiseTravelAdminDAO1" />
+    </bean>
+    <bean id="resourcesOfService1" class="com.bul.zydex.service.emp.ResourcesOfServiceImpl">
+        <property name="resourcesOfDAO" ref="resourcesOfDAO1" />
+    </bean>
+    <bean id="salaryAdvanceApplyService1" class="com.bul.zydex.service.SalaryAdvanceApply.SalaryAdvanceApplyServiceImpl">
+        <property name="salaryAdvanceApplyDao" ref="salaryAdvanceApplyDao1"/>
+    </bean>
+    <bean id="plantListService1" class="com.bul.zydex.service.plantList.PlantListServiceImpl">
+        <property name="plantListDao" ref="plantListDao1"/>
+    </bean>
+    <bean id="leaveCompensationService1" class="com.bul.zydex.service.Payroll.LeaveCompensationServiceImpl">
+        <property name="leaveCompensationDAO" ref="leaveCompensationDAO1"/>
+    </bean>
+    <bean id="hrLogInfoService1" class="com.bul.zydex.service.HrLogInfo.HrLogInfoServiceImpl">
+        <property name="hRLogInfoDao" ref="hRLogInfoDao1"/>
+    </bean>
+    <bean id="leaveApplyByHrService1" class="com.bul.zydex.service.LeaveApplyByHr.LeaveApplyByHrServiceImpl">
+        <property name="leaveApplyByHrDAO" ref="leaveApplyByHrDAO1"/>
+    </bean>
+    <bean id="arrearsDeductionDayWiseService1" class="com.bul.zydex.service.Payroll.ArrearsDeductionDayWiseServiceImpl">
+        <property name="arrearsDeductionDayWiseDAO" ref="arrearsDeductionDayWiseDAO1"/>
+    </bean>
+    <bean id="arreasDeductionDayWiseCalculationService1" class="com.bul.zydex.service.Payroll.ArreasDeductionDayWiseCalculationServiceImpl">
+        <property name="arreasDeductionDayWiseCalculationDAO" ref="arreasDeductionDayWiseCalculationDAO1"/>
+    </bean>
+    <bean id="resourceOfEmployeeRightsService1" class="com.bul.zydex.service.company.ResourceOfEmployeeRightsServiceImpl">
+        <property name="resourceOfEmployeeRightsDAO" ref="resourceOfEmployeeRightsDAO1" />
+    </bean>
+    <bean id="employeeWeekOffService1" class="com.bul.zydex.service.emp.EmployeeWeekOffServiceImpl">
+        <property name="employeeWeekOffDAO" ref="employeeWeekOffDAO1"/>
+    </bean>
+    <bean id="subDepartmentService1" class="com.bul.zydex.service.SubDepartment.SubDepartmentServiceImpl">
+        <property name="subDepartmentDAO" ref="subDepartmentDAO1"/>
+    </bean>
+    <bean id="monthlyAttendanceCountService1" class="com.bul.zydex.service.Payroll.MonthlyAttendanceCountServiceImpl">
+        <property name="monthlyAttendanceCountDAO" ref="monthlyAttendanceCountDAO1"/>
+    </bean>
+    <bean id="groupAllowanceBySubDepartmentService1" class="com.bul.zydex.service.Payroll.GroupAllowanceBySubDepartmentServiceImpl">
+        <property name="groupAllowanceBySubDepartmentDAO" ref="groupAllowanceBySubDepartmentDAO1"/>
+    </bean>
+    <bean id="hrOtRequestService1" class="com.bul.zydex.service.HrOtRequest.HrOtRequestServiceImpl">
+        <property name="hrOtRequestDAO" ref="hrOtRequestDAO1"/>
+    </bean>
+    <bean id="companyWiseExpenseService1" class="com.bul.zydex.service.expense.CompanyWiseExpenseServiceImpl">
+        <property name="companyWiseExpenseDAO" ref="companyWiseExpenseDAO1" />
+    </bean>
+    <bean id="wfoMasterService1" class="com.bul.zydex.service.shift.WfoMasterServiceImpl">
+        <property name="wfoMasterDAO" ref="wfoMasterDAO1" />
+    </bean>
+    <bean id="employeeLeaveBalanceHistoryService1" class="com.bul.zydex.service.leave.EmployeeLeaveBalanceHistoryServiceImpl">
+        <property name="employeeLeaveBalanceHistoryDAO" ref="employeeLeaveBalanceHistoryDAO1" />
+    </bean>
+    
+    <bean id="employeeEmploymentDetailsService1" class="com.bul.zydex.service.EmployeeEmploymentDetails.EmployeeEmploymentDetailsServiceImpl">
+        <property name="employeeEmploymentDetailsDAO" ref="employeeEmploymentDetailsDAO1" />
+    </bean>
+    
+    <bean id="employeeQualificationDetailService1" class="com.bul.zydex.service.EmployeeQualificationDetail.EmployeeQualificationDetailServiceImpl">
+        <property name="employeeQualificationDetailDAO" ref="employeeQualificationDetailDAO1" />
+    </bean>
+    <bean id="expenseVoucherTypeService1" class="com.bul.zydex.service.expense.ExpenseVoucherTypeServiceImpl">
+        <property name="expenseVoucherTypeDAO" ref="expenseVoucherTypeDAO1" />
+    </bean>
+    <bean id="expenseProjectService1" class="com.bul.zydex.service.expense.ExpenseProjectServiceImpl">
+        <property name="expenseProjectDAO" ref="expenseProjectDAO1" />
+    </bean>
+    <bean id="trainingDetailService1" class="com.bul.zydex.service.Training.TrainingDetailServiceImpl">
+        <property name="trainingDetailDAO" ref="trainingDetailDAO1" />
+    </bean>
+    <bean id="employeeTrainingService1" class="com.bul.zydex.service.Training.EmployeeTrainingServiceImpl">
+        <property name="employeeTrainingDAO" ref="employeeTrainingDAO1" />
+    </bean>
+    <bean id="companyAttendanceAutoApprovalService1" class="com.bul.zydex.service.leave.CompanyAttendanceAutoApprovalServiceImpl">
+        <property name="companyAttendanceAutoApprovalDAO" ref="companyAttendanceAutoApprovalDAO1" />
+    </bean>
+    <bean id="samparkQuestionMasterService1" class="com.bul.zydex.service.Sampark.SamparkQuestionMasterServiceImpl">
+        <property name="samparkQuestionMasterDAO" ref="samparkQuestionMasterDAO1" />
+    </bean>
+    
+    <bean id="samparkQuestionPaperService1" class="com.bul.zydex.service.Sampark.SamparkQuestionPaperServiceImpl">
+        <property name="samparkQuestionPaperDAO" ref="samparkQuestionPaperDAO1" />
+    </bean>
+    
+    <bean id="samparkQuestionPaperQuestionService1" class="com.bul.zydex.service.Sampark.SamparkQuestionPaperQuestionServiceImpl">
+        <property name="samparkQuestionPaperQuestionDAO" ref="samparkQuestionPaperQuestionDAO1" />
+    </bean>
+    <bean id="samparkAssignmentSendService1" class="com.bul.zydex.service.Sampark.SamparkAssignmentSendServiceImpl">
+        <property name="samparkAssignmentSendDAO" ref="samparkAssignmentSendDAO1" />
+    </bean>
+    <bean id="samparkAssignmentService1" class="com.bul.zydex.service.Sampark.SamparkAssignmentServiceImpl">
+        <property name="samparkAssignmentDAO" ref="samparkAssignmentDAO1" />
+    </bean>
+    <bean id="levelWiseResignationService1" class="com.bul.zydex.service.resignation.LevelWiseResignationServiceImpl">
+        <property name="levelWiseResignationDAO" ref="levelWiseResignationDAO1" />
+    </bean>
+    <bean id="taskLogHistoryService1" class="com.bul.zydex.service.Task.TaskLogHistoryServiceImpl">
+        <property name="taskLogHistoryDao" ref="taskLogHistoryDAO1"/>
+    </bean>
+    <bean id="taskDocService1" class="com.bul.zydex.service.Task.TaskDocServiceImpl">
+        <property name="taskDocDao" ref="taskDocDAO1"/>
+    </bean>
+    <bean id="taskEmpService1" class="com.bul.zydex.service.Task.TaskEmpServiceImpl">
+        <property name="taskEmpDao" ref="taskEmpDAO1"/>
+    </bean>
+    <bean id="taskInfoService1" class="com.bul.zydex.service.Task.TaskInfoServiceImpl">
+        <property name="taskInfoDao" ref="taskInfoDAO1"/>
+    </bean>
+    <bean id="empService1" class="com.bul.zydex.service.Task.EmpServiceImpl">
+        <property name="empDao" ref="empDAO1"/>
+    </bean>
+   
+    <bean id="yearMasterService1" class="com.bul.zydex.service.Task.YearMasterserviceImpl">
+        <property name="yearMasterDao" ref="yearMasterDAO1"/>
+    </bean>
+  
+    <bean id="tasksService1" class="com.bul.zydex.service.Task.TasksServiceImpl">
+        <property name="tasksDao" ref="tasksDAO1"/>
+    </bean>
+    <bean id="projectService1" class="com.bul.zydex.service.Task.ProjectServiceImpl">
+        <property name="projectDao" ref="projectDAO1"/>
+    </bean>
+    
+    <bean id="taskProjectService1" class="com.bul.zydex.service.Task.TaskProjectServiceImpl">
+        <property name="taskProjectDao" ref="taskProjectDao1"/>
+    </bean>
+    <bean id="modeOfTravelService1" class="com.bul.zydex.service.ModeOfTravel.ModeOfTravelServiceImpl">
+        <property name="modeOfTravelDAO" ref="modeOfTravelDAO1" />
+    </bean>
+
+    <bean id="cityTypeService1" class="com.bul.zydex.service.CityType.CityTypeServiceImpl">
+        <property name="cityTypeDao" ref="cityTypeDAO1"/>
+    </bean>
+    <bean id="travelPolicyService1" class="com.bul.zydex.service.TravelPolicy.TravelPolicyServiceImpl">
+        <property name="travelPolicyDAO" ref="travelPolicyDAO1" />
+    </bean>
+    <bean id="policyAccommodationService1" class="com.bul.zydex.service.PolicyAccommodation.PolicyAccommodationServiceImpl">
+        <property name="policyAccommodationDAO" ref="policyAccommodationDAO1" />
+    </bean>
+    <bean id="cooMasterService1" class="com.bul.zydex.service.CooMaster.CooMasterServiceImpl">
+        <property name="cooMasterDAO" ref="cooMasterDAO1" />
+    </bean>
+     <bean id="financeMasterService1" class="com.bul.zydex.service.FinanceMaster.FinanceMasterServiceImpl">
+        <property name="financeMasterDAO" ref="financeMasterDAO1" />
+    </bean>
+    
+    
+    <bean id="studentInfoService1" class="com.bul.zydex.service.StudentInfo.StudentInfoServiceImpl">
+        <property name="studentInfoDAO" ref="studentInfoDAO1" />
+    </bean>
+
+     <bean id="studentResultService1" class="com.bul.zydex.service.StudentResult.StudentResultServiceImpl">
+        <property name="studentResultDAO" ref="studentResultDAO1" />
+    </bean>
+    
+    <bean id="customerDetailsService1" class="com.bul.zydex.service.CustomerDetails.CustomerDetailsServiceImpl">
+        <property name="customerDetailsDAO" ref="customerDetailsDAO1" />
+    </bean>
+
+
+ <bean id="employeeDetailsService1" class="com.bul.zydex.service.EmployeeDetails.EmployeeDetailsServiceImpl">
+        <property name="employeeDetailsDAO" ref="employeeDetailsDAO1" />
+    </bean>
+
+
+<bean id="teacherInfoService1" class="com.bul.zydex.service.TeacherInfo.TeacherInfoServiceImpl">
+        <property name= "teacherInfoDAO" ref="teacherInfoDAO1" />
+</bean>
+        
+        <bean id="studentAdmissionService1" class="com.bul.zydex.service.StudentAdmission.StudentAdmissionServiceImpl">
+        <property name= "studentAdmissionDAO" ref="studentAdmissionDAO1" />
+</bean>
+
+</beans>
